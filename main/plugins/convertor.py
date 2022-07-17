@@ -57,7 +57,7 @@ async def mp3(event, msg):
         return await edit.edit(f"An error occured while downloading!\n\nContact [SUPPORT]({SUPPORT_LINK})")
     try:
         await edit.edit("Converting.")
-        bash(f"ffmpeg -i {name} -codec:a libmp3lame -q:a 0 {out}.mp3")
+        bash(f"ffmpeg -i {name} -codec:a libmp3lame -q:a 0 -metadata title="Black August" {out}.mp3")
     except Exception as e:
         os.rmdir("audioconvert")
         print(e)
